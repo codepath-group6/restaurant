@@ -14,7 +14,6 @@ Group Milestone - README
 Suggests restaurants one after another to an individual. Users can save the restaurant by swiping, placing it into a list. (can include more prob) 
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
 - **Category:** Lifestyle 
 - **Mobile:** Like Yelp, it will have the user's location and take in real time data about surrounding restaurants. (if we want it to work like Yelp and have information like closing / opening data displayed). For now, it'll only run from a mobile device. 
 - **Story:** The fascinating thing about Fud is that it is a hybrid mobile app, bringing the best features of both Yelp and Tinder, allowing users to quickly scan, add and swipe suggested restaurants. This app is perfect for our friends and peers who have short attention spans and dislike scrolling through dozens of restaurants at once. 
