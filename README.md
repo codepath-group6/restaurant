@@ -11,7 +11,7 @@ Group Milestone - README
 
 ## Overview
 ### Description
-Suggests restaurants one after another to an individual. Users can save the restaurant by swiping, placing it into a list. (can include more prob) 
+Suggests restaurants one after another to an individual. User can swipe to save restaurant into a list. (can include more prob) 
 
 ### App Evaluation
 - **Category:** Lifestyle 
