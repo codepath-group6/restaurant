@@ -1,7 +1,7 @@
 Group Milestone - README
 ===
 
-# Fud
+# Fuud
  
 ## Table of Contents
 1. [Overview](#Overview)
@@ -11,14 +11,14 @@ Group Milestone - README
 
 ## Overview
 ### Description
-Suggests restaurants one after another to an individual. User can swipe to save restaurant into a list. (can include more prob) 
+Suggests restaurants one after another to an individual. User can swipe to save restaurant into a list.
 
 ### App Evaluation
 - **Category:** Lifestyle 
-- **Mobile:** Like Yelp, it will have the user's location and take in real time data about surrounding restaurants. (if we want it to work like Yelp and have information like closing / opening data displayed). For now, it'll only run from a mobile device. 
-- **Story:** The fascinating thing about Fud is that it is a hybrid mobile app, bringing the best features of both Yelp and Tinder, allowing users to quickly scan, add and swipe suggested restaurants. This app is perfect for our friends and peers who have short attention spans and dislike scrolling through dozens of restaurants at once. 
-- **Market:** Dining out and spending outdoor time (which none of us CS gals do..jk pls remove me) will always be part of the world. Fud provides quick, targeted suggestions for people who don't want to spend hours deciding on what to eat. 
-- **Habit:** Fud's tinder-like swipe feature in addition to the personalized list of liked restaurants ensures that users will not only satisfy user's needs, but it will also aim to let users enjoy being given one choice at a time. Users will consume Fud to make quick choices for them but also give users the opportunity to explore restaurants in an addicting fashion.
+- **Mobile:** Like Yelp, it will have the user's location and take in real time data about surrounding restaurants. It will have a details page for each restaurant for a user to access. For now, it'll only run from a mobile device. 
+- **Story:** The fascinating thing about Fuud is that it is a hybrid mobile app, bringing the best features of both Yelp and Tinder, allowing users to quickly scan, add and swipe suggested restaurants. This app is perfect for our friends and peers who have short attention spans and dislike scrolling through dozens of restaurants at once. 
+- **Market:** Dining out and spending outdoor time will always be part of the world. Fuud provides quick, targeted suggestions for people who don't want to spend hours deciding on what to eat. 
+- **Habit:** Fuud's tinder-like swipe feature in addition to the personalized list of liked restaurants, ensures that users will not only satisfy user's needs, but it will also aim to let users enjoy being given one choice at a time. Users will consume Fuud to make quick choices for them but also give users the opportunity to explore restaurants in an addicting fashion.
 - **Scope:** The complete app that includes displaying restaurant suggestions, enabling the swipe feature, and including the restaurant into a personalized list might be a challenge to finish all by the end of the program. However, the stripped down version that includes displaying personalized individual restaurants to the user using geolocation will be the goal. If done, it will undoubtedly give us a broader view of what types of mobile apps we are capable of creating. 
 
 ## Product Spec
@@ -27,10 +27,11 @@ Suggests restaurants one after another to an individual. User can swipe to save 
 
 **Required Must-have Stories**
 
-* User location accessed to get nearby restaurant information from Yelp api
-* Suggested restaurants displayed to the user one-by-one, with name, image, yelp stars, relative cost, cuisine-type, and distance from location
-* User swipes left to dismiss a restaurant and right to like/favorite a restaurant
-* Detailed view for each restaurant
+* Accesses user location to get nearby restaurant information from Yelp API
+* Suggests restaurants and displays to the user one-by-one, with name, image, yelp stars, relative cost, cuisine-type, and distance from location.
+* User swipes left to dismiss a restaurant and right to like/favorite a restaurant.
+* Detailed view for each restaurant, perhaps by swiping up or having a separate details page by tapping on picture.
+* Authentication through logging in so user's can save their restuarants
 * Settings
 
 **Optional Nice-to-have Stories**
