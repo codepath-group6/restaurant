@@ -27,13 +27,18 @@ Suggests restaurants one after another to an individual. User can swipe to save 
 
 **Required Must-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* User location accessed to get nearby restaurant information from Yelp api
+* Suggested restaurants displayed to the user one-by-one, with name, image, yelp stars, relative cost, cuisine-type, and distance from location
+* User swipes left to dismiss a restaurant and right to like/favorite a restaurant
+* Detailed view for each restaurant
+* Settings
 
 **Optional Nice-to-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* Page of liked/favorited restaurants
+* User picks preferences (cuisine-type, cost range, maximum distance, etc...)
+* Log of previously visited restaurants
+* Display directions from user location to restaurant (step-by-step and/or map)
 
 ### 2. Screen Archetypes
 
