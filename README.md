@@ -78,7 +78,7 @@ Suggests restaurants one after another to an individual. User can swipe to save 
 <img src="images/wireframe.png" width=500px>
 
 ### Digital Wireframes & Mockups
-<img src="images/digitalwireframe.png" width=600px
+<img src="images/digitalwireframe.png" width=600px>
 
 ### [BONUS] Interactive Prototype
 
