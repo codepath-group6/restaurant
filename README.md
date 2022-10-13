@@ -43,6 +43,10 @@ Suggests restaurants one after another to an individual. User can swipe to save 
 
 ### 2. Screen Archetypes
 
+* Login Screen
+   * User can log in with username/password
+   * User can sign up for an account
+   * Validation of form inputs for invalid data
 * Home Screen
    * One click button to initiate restaurant discovery
    * If returning to the app, the view below it displays past restaurants that a user swiped right on
