@@ -42,12 +42,20 @@ Suggests restaurants one after another to an individual. User can swipe to save 
 
 ### 2. Screen Archetypes
 
-* [list first screen here]
-   * [list associated required story here]
-   * ...
-* [list second screen here]
-   * [list associated required story here]
-   * ...
+* Home Screen
+   * One click button to initiate restaurant discovery
+   * If returning to the app, the view below it displays past restaurants that a user swiped right on
+   * Restaurants can be removed and the whole list cleared 
+   * Clicking a restaurant enters detailed view
+* Restaurant Explorer
+   * User location is obtained and a randomized restaurant is presented for users to swipe left or right
+   * Button to return to the main screen once finished 
+* Restaurant Detail View
+   * Expands on restaurant details with images and contact information
+   * View with map that can be clicked to redirect to user's preferred map app to get directions
+* Settings 
+   * Filters to further refine types of restaurants shown in Explorer
+   
 
 ### 3. Navigation
 
