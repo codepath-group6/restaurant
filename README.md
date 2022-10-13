@@ -61,18 +61,16 @@ Suggests restaurants one after another to an individual. User can swipe to save 
 
 **Tab Navigation** (Tab to Screen)
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+* Fill out login in and submit
+* Fill out login info and sign up if no previous account
 
 **Flow Navigation** (Screen to Screen)
 
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
-   * ...
+* Main page displays button to navigate to search page
+   * Swipe left to add restaurant to Fuud archive
+   * Swipe right to select another restaurant
+* Main page displays list of archive in infinite scroll and navigates to details page
+   * display details of restaurant 
 
 ## Wireframes
 <img src="images/wireframe.png" width=500px>
