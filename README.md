@@ -88,8 +88,39 @@ Suggests restaurants one after another to an individual. Users can swipe to reje
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+[Add table of models]... **see below...very unsure, this section needs polishing (remove line later)**
+### **Model: Restaurant Archive**
+| Property     | Type           | Description         |
+| ------------ | -------------- | -------------       |
+| restaurant   | Pointer to Restaurant | each restaurant to add to archive  |
+| restaurantArray | Array                | container to hold restaurant |
+### **Model: Restaurant**
+| Property     | Type           | Description                 |
+| ------------ | -------------- | -------------               |
+| restaurantId | String         | unique id for restaurant    |
+| image        | File           | image for restaurant        |
+### **Model: User**
+| Property     | Type           | Description                 |
+| ------------ | -------------- | -------------               |
+| userId   | String     | unique id for user                  |
+| createdAt     | DateTime       | date when user account is created  |
+| numberOfLikes | Number | number of likes user has made |
+| userUsername | String | username for user account |
+| userPassword | String | password for user account |
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
+* Login Screen
+  * (Create/POST) Create a new user object
+  * (Read/GET) Query logged in user object
+* Home Screen
+  * (Read/GET) Fetch restaurant-archive object
+  * (Create/POST) Create new restaurant object in restaurant-archive object
+  * (Delete/DELETE) Restaurant removed from restaurant-archive object
+* Restaurant Explorer Screen
+  * (Create/POST) Add restaurant to restaurant-archive object 
+* Restaurant Details Screen
+  * (Read/GET) Fetch restaurant from restaurant-archive object
+
+- [Add list of network requests by screen ] **... see above (remove line later)**
+- [Create basic snippets for each Parse network request] **... yeah...we already confirmed we don't have to do this right? lol  (remove line later)**
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
