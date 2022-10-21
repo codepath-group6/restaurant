@@ -86,20 +86,9 @@ Suggests restaurants one after another to an individual. Users can swipe to reje
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
+
 ### Models
-[Add table of models]... **see below...very unsure, this section needs polishing (remove line later)**
-### **Model: Restaurant Archive**
-| Property     | Type           | Description         |
-| ------------ | -------------- | -------------       |
-| restaurant   | Pointer to Restaurant | each restaurant to add to archive  |
-| restaurantArray | Array                | container to hold restaurant |
-### **Model: Restaurant**
-| Property     | Type           | Description                 |
-| ------------ | -------------- | -------------               |
-| restaurantId | String         | unique id for restaurant    |
-| image        | File           | image for restaurant        |
-### **Model: User**
+#### User
 | Property     | Type           | Description                 |
 | ------------ | -------------- | -------------               |
 | userId   | String     | unique id for user                  |
@@ -108,19 +97,36 @@ Suggests restaurants one after another to an individual. Users can swipe to reje
 | userUsername | String | username for user account |
 | userPassword | String | password for user account |
 
-### Networking
-* Login Screen
-  * (Create/POST) Create a new user object
-  * (Read/GET) Query logged in user object
-* Home Screen
-  * (Read/GET) Fetch restaurant-archive object
-  * (Create/POST) Create new restaurant object in restaurant-archive object
-  * (Delete/DELETE) Restaurant removed from restaurant-archive object
-* Restaurant Explorer Screen
-  * (Create/POST) Add restaurant to restaurant-archive object 
-* Restaurant Details Screen
-  * (Read/GET) Fetch restaurant from restaurant-archive object
+#### User's Restaurant Archive
+| Property     | Type           | Description         |
+| ------------ | -------------- | -------------       |
+| restaurant   | Pointer to Restaurant | each restaurant to add to archive  |
+| restaurantArray | Array       | container to hold restaurant  |
 
-- [Add list of network requests by screen ] **... see above (remove line later)**
-- [Create basic snippets for each Parse network request] **... yeah...we already confirmed we don't have to do this right? lol  (remove line later)**
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+#### Restaurant
+| Property     | Type           | Description                 |
+| ------------ | -------------- | -------------               |
+| restaurantId | String         | unique id for restaurant    |
+| image        | File           | image for restaurant        |
+| restaurantName| String        | restaurant name|
+| address      | String         | restaurant address |
+| phoneNum     | Number         | restaurant phone number |
+| cuisineType  | String         | restaurant cuisine type |
+| rating       | Number(float)  | restaurant rating |
+| price        | String         | restaurant relative cost |
+
+
+### **Networking**
+
+* Login Screen
+    * (Create/POST) Create a new user object
+    * (Read/GET) Query logged in user object
+* Home Screen
+    * (Read/GET) Fetch restaurant-archive object
+    * (Create/POST) Create new restaurant object in restaurant-archive object
+    * (Delete/DELETE) Restaurant removed from restaurant-archive object
+* Restaurant Explorer
+    * (Create/POST) Add restaurant to restaurant-archive object
+* Restaurant Detail View
+    * (Read/GET) Fetch restaurant info from restaurant-archive object
+
