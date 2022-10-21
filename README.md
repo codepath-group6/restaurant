@@ -83,7 +83,6 @@ Suggests restaurants one after another to an individual. Users can swipe to reje
 ### Digital Wireframes & Mockups
 <img src="images/digitalwireframe.png" width=600px>
 
-### [BONUS] Interactive Prototype
 
 ## Schema 
 
