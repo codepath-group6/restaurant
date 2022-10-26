@@ -1,0 +1,6 @@
+framework module Pods_FuudTests {
+  umbrella header "Pods-FuudTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
