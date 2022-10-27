@@ -4,10 +4,17 @@ Group Milestone - README
 # Fuud
  
 ## Table of Contents
+1. [Completed User Stories](#Completed-User-Stories)
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
 2. [Schema](#Schema)
+
+## Completed User Stories
+The following **required** functionality is completed:
+
+- [x] When user opens app, there should be a launch screen with perhaps our own logo.
+- [x] When user opens app and after seeing launch screen, user will see login screen with: FUUD logo, username text field, password text field, signin button, sign up button
 
 ## Overview
 ### Description
