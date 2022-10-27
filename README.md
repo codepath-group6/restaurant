@@ -13,7 +13,7 @@ Group Milestone - README
 ## Completed User Stories
 The following **required** functionality is completed:
 
-- [x] When user opens app, there should be a launch screen with perhaps our own logo.
+- [x] When user opens app, there should be a launch screen with logo (vector img obtained from https://www.vecteezy.com/vector-art/13043198-abstract-two-tea-spoons-keep-on-the-table-logo-design-icon-tableware-element-kitchenware-vector-illustration)
 - [x] When user opens app and after seeing launch screen, user will see login screen with: FUUD logo, username text field, password text field, signin button, sign up button
 
 ## Overview
