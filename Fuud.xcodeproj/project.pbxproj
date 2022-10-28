@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BA96E03290B57F800F693A1 /* ProjectedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA96E02290B57F800F693A1 /* ProjectedCell.xib */; };
+		7BA96E05290B58D600F693A1 /* ProjectedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA96E04290B58D600F693A1 /* ProjectedCell.swift */; };
+		7BA96E07290B5B8B00F693A1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA96E06290B5B8B00F693A1 /* API.swift */; };
+		7BA96E09290B5BCC00F693A1 /* YelpStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA96E08290B5BCC00F693A1 /* YelpStars.swift */; };
 		94142A8829099CBA00E6FAAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94142A8729099CBA00E6FAAC /* AppDelegate.swift */; };
 		94142A8A29099CBA00E6FAAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94142A8929099CBA00E6FAAC /* SceneDelegate.swift */; };
 		94142A8F29099CBA00E6FAAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94142A8D29099CBA00E6FAAC /* Main.storyboard */; };
@@ -46,6 +50,10 @@
 		44B52B4EB731843EC1ECDD9A /* Pods_FuudTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FuudTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50368CC74EDF422D07D41ACA /* Pods-FuudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuudTests.release.xcconfig"; path = "Target Support Files/Pods-FuudTests/Pods-FuudTests.release.xcconfig"; sourceTree = "<group>"; };
 		7AABF09555EEF29FA152A72B /* Pods-Fuud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fuud.release.xcconfig"; path = "Target Support Files/Pods-Fuud/Pods-Fuud.release.xcconfig"; sourceTree = "<group>"; };
+		7BA96E02290B57F800F693A1 /* ProjectedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectedCell.xib; sourceTree = "<group>"; };
+		7BA96E04290B58D600F693A1 /* ProjectedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectedCell.swift; sourceTree = "<group>"; };
+		7BA96E06290B5B8B00F693A1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		7BA96E08290B5BCC00F693A1 /* YelpStars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpStars.swift; sourceTree = "<group>"; };
 		94142A8429099CBA00E6FAAC /* Fuud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94142A8729099CBA00E6FAAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94142A8929099CBA00E6FAAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +157,10 @@
 				94142A9529099CBB00E6FAAC /* Info.plist */,
 				9457E0C42909B15800445D35 /* LoginViewController.swift */,
 				9457E0C62909B18700445D35 /* FeedViewController.swift */,
+				7BA96E02290B57F800F693A1 /* ProjectedCell.xib */,
+				7BA96E04290B58D600F693A1 /* ProjectedCell.swift */,
+				7BA96E06290B5B8B00F693A1 /* API.swift */,
+				7BA96E08290B5BCC00F693A1 /* YelpStars.swift */,
 			);
 			path = Fuud;
 			sourceTree = "<group>";
@@ -281,6 +293,7 @@
 			files = (
 				94142A9429099CBB00E6FAAC /* LaunchScreen.storyboard in Resources */,
 				94142A9129099CBB00E6FAAC /* Assets.xcassets in Resources */,
+				7BA96E03290B57F800F693A1 /* ProjectedCell.xib in Resources */,
 				94142A8F29099CBA00E6FAAC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,9 +423,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9457E0C52909B15800445D35 /* LoginViewController.swift in Sources */,
+				7BA96E05290B58D600F693A1 /* ProjectedCell.swift in Sources */,
 				94142A8829099CBA00E6FAAC /* AppDelegate.swift in Sources */,
 				9457E0C72909B18700445D35 /* FeedViewController.swift in Sources */,
+				7BA96E07290B5B8B00F693A1 /* API.swift in Sources */,
 				94142A8A29099CBA00E6FAAC /* SceneDelegate.swift in Sources */,
+				7BA96E09290B5BCC00F693A1 /* YelpStars.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
