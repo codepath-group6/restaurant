@@ -8,6 +8,7 @@ target 'Fuud' do
   # Pods for Fuud
   pod 'Parse'
   pod 'AlamofireImage'
+  pod 'Koloda'
 
   target 'FuudTests' do
     inherit! :search_paths
