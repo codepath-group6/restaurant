@@ -15,7 +15,14 @@ The following **required** functionality is completed:
 
 - [x] When user opens app, there should be a launch screen with logo (vector img obtained from https://www.vecteezy.com/vector-art/13043198-abstract-two-tea-spoons-keep-on-the-table-logo-design-icon-tableware-element-kitchenware-vector-illustration)
 - [x] When user opens app and after seeing launch screen, user will see login screen with: FUUD logo, username text field, password text field, signin button, sign up button
-- [x] Implemented pod Koloda (https://github.com/Yalantis/Koloda) and its methods to provide left and right card-swipe functionality on a custom user interface view with restaurant information projected onto each top card  
+- [x] Screen shows one restaurant suggestion at a time. Suggestion includes: restaurant image, name, yelp stars, and cuisine type. User can swipe to get different restaurant suggestion.
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories (build progress):
+
+<img src= 'https://github.com/SYee50/Gif/blob/main/fuud_sprint_1.gif' />
+
 
 ## Overview
 ### Description
