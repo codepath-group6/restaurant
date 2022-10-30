@@ -74,6 +74,7 @@ extension FeedViewController: KolodaViewDataSource {
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
         let cell = ProjectedCell()
         let restaurant = restaurantsArray[index]
+        print(restaurant)
         
         // Set name and phone of cell label
         cell.nameLabel.text = restaurant["name"] as? String
