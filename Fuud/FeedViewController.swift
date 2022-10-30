@@ -80,6 +80,10 @@ extension FeedViewController: KolodaViewDelegate {
             selectedRestaurant.saveInBackground {(success, error) in
                 if success {
                     print("Saved favorited restaurant successfully to Parse!")
+                    // send an alert to user that added to favorites
+                    let alert = UIAlertController(title: "Added to Favorites!", message: "Added \(self.restaurantsArray[self.currentIndex - 3].name) to Favorites :)", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        self.present(alert, animated: true)
                 } else {
                     print("Error! Could not save")
                 }

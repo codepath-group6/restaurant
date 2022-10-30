@@ -22,9 +22,10 @@ class FeedViewDetailsController: UIViewController {
     
     
     var r: Restaurant!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         restaurantImage.af.setImage(withURL: r.imageURL!)
         nameLabel.text = r.name
         phoneLabel.text = r.phone
