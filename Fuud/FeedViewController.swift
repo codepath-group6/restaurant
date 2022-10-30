@@ -27,6 +27,11 @@ class FeedViewController: UIViewController {
     
     //Button to use instead of a swipe right
     @IBAction func likePressed(_ sender: Any) {
+        
+        // send an alert to user that added to favorites
+        let alert = UIAlertController(title: "Added to Favorites!", message: "Added \(restaurantsArray[currentIndex - 2].name) to Favorites :)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
         restaurantCardView.swipe(.right)
     }
     
@@ -54,7 +59,6 @@ class FeedViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         print("preparing Data")
-        let cell = sender as! UIView
         let r = restaurantsArray[currentIndex - 2]
         let detailViewController = segue.destination as! FeedViewDetailsController
             detailViewController.r = r
@@ -97,14 +101,12 @@ extension FeedViewController: KolodaViewDelegate {
     
     // Koloda method for what to do when a card is clicked. This creates a pop up with arbitrary text
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-        let alert = UIAlertController(title: "Added to Favorites!", message: "Added \(name) to Favorites :)", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alert, animated: true)
+
         //let controller = storyboard?.instantiateViewController(withIdentifier: "FeedViewDetailsController")
         //controller.detailedView.addSubview(ProjectedCell)
         
         //self.present(controller!, animated: true, completion: nil)
-    
+        self.performSegue(withIdentifier: "SegueToDetails", sender: nil)
     }
 }
 
