@@ -8,11 +8,13 @@
 import UIKit
 import AlamofireImage
 import Koloda
+import Parse
 
 class FeedViewController: UIViewController {
     
     // array of restaurants sorted through
-    var restaurantsArray: [[String:Any?]] = []
+    var restaurantsArray: [Restaurant] = []
+    var currentIndex: Int = 0
     
     @IBOutlet weak var restaurantCardView: KolodaView!
     
@@ -43,10 +45,44 @@ class FeedViewController: UIViewController {
             self.restaurantCardView.reloadData()
         }
     }
+    
+
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        print("preparing Data")
+        let cell = sender as! UIView
+        let r = restaurantsArray[currentIndex - 2]
+        let detailViewController = segue.destination as! FeedViewDetailsController
+            detailViewController.r = r
+    }
 }
 
 // View Delegate group
 extension FeedViewController: KolodaViewDelegate {
+    
+    func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
+        if direction == .right {
+            let selectedRestaurantId = restaurantsArray[currentIndex - 2].id
+            print(restaurantsArray[currentIndex - 2].id)
+            let selectedRestaurant = PFObject(className: "Favorite_Restaurants")
+            
+            selectedRestaurant["User"] = PFUser.current()!
+            selectedRestaurant["Restaurant_id"] = selectedRestaurantId
+            
+            selectedRestaurant.saveInBackground {(success, error) in
+                if success {
+                    print("Saved favorited restaurant successfully to Parse!")
+                } else {
+                    print("Error! Could not save")
+                }
+                
+            }
+        }
+    }
     
     //What to do when we run out of cards (This needs to be integrated with infinite scroll
     //along with continuous API calls, but I don't know how to do this at the moment
@@ -61,9 +97,14 @@ extension FeedViewController: KolodaViewDelegate {
     
     // Koloda method for what to do when a card is clicked. This creates a pop up with arbitrary text
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-        let alert = UIAlertController(title: "Added!", message: "Added to Favorites :)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Added to Favorites!", message: "Added \(name) to Favorites :)", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alert, animated: true)
+        //let controller = storyboard?.instantiateViewController(withIdentifier: "FeedViewDetailsController")
+        //controller.detailedView.addSubview(ProjectedCell)
+        
+        //self.present(controller!, animated: true, completion: nil)
+    
     }
 }
 
@@ -73,30 +114,13 @@ extension FeedViewController: KolodaViewDataSource {
     // Koloda method for casting a view. Casting custom designed ProjectedCell. 
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
         let cell = ProjectedCell()
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 20
         let restaurant = restaurantsArray[index]
-        print(restaurant)
+        currentIndex = index
+        //print("This is the current index:\(currentIndex)")
+        cell.r = restaurant
         
-        // Set name and phone of cell label
-        cell.nameLabel.text = restaurant["name"] as? String
-        cell.phoneLabel.text = restaurant["display_phone"] as? String
-        
-        // Get reviews
-        let reviews = restaurant["review_count"] as? Int
-        cell.reviewsLabel.text = String(reviews!)
-        
-        // Get categories
-        let categories = restaurant["categories"] as! [[String: Any]]
-        cell.categoryLabel.text = categories[0]["title"] as? String
-        
-        // Set stars images
-        let reviewDouble = restaurant["rating"] as! Double
-        cell.starsImage.image = Stars.dict[reviewDouble]!
-        
-        // Set Image of restaurant
-        if let imageUrlString = restaurant["image_url"] as? String {
-            let imageUrl = URL(string: imageUrlString)
-            cell.restaurantImage.af.setImage(withURL: imageUrl!)
-        }
         return cell // sorting
     }
 
