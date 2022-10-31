@@ -1,0 +1,111 @@
+//
+//  FavoritesViewController.swift
+//  Fuud
+//
+//  Created by Eugene Song on 10/30/22.
+//
+
+import UIKit
+import Parse
+
+class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    @IBOutlet weak var tableView: UITableView!
+
+    // declare an array to hold Restaurants
+    var restaurants = [PFObject]()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        
+        // get all "Favorite_Restaurants" objects from Parse
+        let query = PFQuery(className: "Favorite_Restaurants")
+        
+        query.findObjectsInBackground { (objects, error) in
+            // no error in fetch
+            if error == nil {
+                
+                // object array isn't nil
+                if let returnedObjects = objects {
+                    // loop through array to get each object
+                    for object in returnedObjects {
+                        print(object["Restaurant_name"] as! String)
+                        self.restaurants.append(object)
+                        
+                    }
+                   // print(self.restaurants)
+                }
+            }
+        }
+        // need to reload data to tell tableview to update once restaurants array is filled
+        self.tableView.reloadData()
+    }
+
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//
+//        // create query using Parse database retrieval under "Basic Queries" in their docs
+//
+//        let query = PFQuery(className: "Favorite_Restaurants")
+//
+//        query.findObjectsInBackground { (objects, error) in
+//            // no error in fetch
+//            if error == nil {
+//                if let returnedObjects = objects {
+//                    // object array isn't nil
+//                    // loop through array to get each object
+//
+//                    for object in returnedObjects {
+//                        print(object["Restaurant_name"] as! String)
+//                        self.restaurants.append(object)
+//                    }
+//                    print(self.restaurants)
+//                }
+//            }
+//        }
+//        self.tableView.reloadData()
+//    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return restaurants.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        print(restaurants.count)
+        print("dequeueReusable cell has been reached")
+        // recycle cells and cast MovieCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell") as! FavoritesTableViewCell
+        
+        let restaurant = restaurants[indexPath.row]
+        
+        print("cellForRowAt has been reached")
+        print(restaurant)
+        
+        let name = restaurant["name"] as! String
+        
+        cell.restaurantName.text = name
+
+        return cell
+
+    }
+
+
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
+
