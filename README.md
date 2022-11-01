@@ -16,6 +16,8 @@ The following **required** functionality is completed:
 - [x] When user opens app, there should be a launch screen with logo (vector img obtained from https://www.vecteezy.com/vector-art/13043198-abstract-two-tea-spoons-keep-on-the-table-logo-design-icon-tableware-element-kitchenware-vector-illustration)
 - [x] When user opens app and after seeing launch screen, user will see login screen with: FUUD logo, username text field, password text field, signin button, sign up button
 - [x] Screen shows one restaurant suggestion at a time. Suggestion includes: restaurant image, name, yelp stars, and cuisine type. User can swipe to get different restaurant suggestion.
+- [x] User will stay logged in as they navigate through app, user will be able to log out too. 
+- [x] When user wants more information on restaurant, user can tap on restaurant card to navigate to restaurant details screen. 
 
 ## Video Walkthrough
 
