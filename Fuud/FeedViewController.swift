@@ -58,11 +58,32 @@ class FeedViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "SegueToDetails" {
         print("preparing Data")
         let r = restaurantsArray[currentIndex - 2]
         let detailViewController = segue.destination as! FeedViewDetailsController
             detailViewController.r = r
+        }
+        if segue.identifier == "SegueToFavorites" {
+            print("favorites segue worked")
+//            let r = restaurantsArray[currentIndex - 2]
+//            let favoritesVC = segue.destination as! FavoritesViewController
+//                favoritesVC.restaurant = r
+        }
     }
+    
+    //function for user to logout
+    @IBAction func onLogoutButton(_ sender: Any) {
+        PFUser.logOut()
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let delegate = windowScene.delegate as? SceneDelegate else {return}
+        
+        delegate.window?.rootViewController = loginViewController
+        
+    }
+    
 }
 
 // View Delegate group
@@ -70,12 +91,23 @@ extension FeedViewController: KolodaViewDelegate {
     
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
         if direction == .right {
-            let selectedRestaurantId = restaurantsArray[currentIndex - 2].id
-            print(restaurantsArray[currentIndex - 2].id)
+            let selectedRestaurantId = restaurantsArray[currentIndex - 3].id
+            
+            // didSwipeCardAt uses current_index-33 ... unlike above which uses current_index-2
+//            print("curr index - 3 id is ")
+//            print(restaurantsArray[currentIndex - 3].id)
+//            print(restaurantsArray[currentIndex - 3].name)
+            
+//            print("curr index - 2 id is ")
+//            print(restaurantsArray[currentIndex - 2].id)
+//            print(restaurantsArray[currentIndex - 2].name)
             let selectedRestaurant = PFObject(className: "Favorite_Restaurants")
             
             selectedRestaurant["User"] = PFUser.current()!
             selectedRestaurant["Restaurant_id"] = selectedRestaurantId
+            
+            // added this to store restaurant name inside Parse
+            selectedRestaurant["Restaurant_name"] = restaurantsArray[currentIndex-3].name
             
             selectedRestaurant.saveInBackground {(success, error) in
                 if success {
@@ -94,8 +126,11 @@ extension FeedViewController: KolodaViewDelegate {
     
     //What to do when we run out of cards (This needs to be integrated with infinite scroll
     //along with continuous API calls, but I don't know how to do this at the moment
+    // for now we just had index reset so when user does reach the end, stack resets
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
+        restaurantCardView.resetCurrentCardIndex()
         restaurantCardView.reloadData()
+        
     }
     
     // A rough draft test of what to do when a card is clicked. This just leads to Google
@@ -139,4 +174,6 @@ extension FeedViewController: KolodaViewDataSource {
     func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
         return restaurantsArray.count // images count
     }
+    
+    
 }
