@@ -58,10 +58,18 @@ class FeedViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "SegueToDetails" {
         print("preparing Data")
         let r = restaurantsArray[currentIndex - 2]
         let detailViewController = segue.destination as! FeedViewDetailsController
             detailViewController.r = r
+        }
+        if segue.identifier == "SegueToFavorites" {
+            print("favorites segue worked")
+//            let r = restaurantsArray[currentIndex - 2]
+//            let favoritesVC = segue.destination as! FavoritesViewController
+//                favoritesVC.restaurant = r
+        }
     }
     
     //function for user to logout
@@ -83,12 +91,23 @@ extension FeedViewController: KolodaViewDelegate {
     
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
         if direction == .right {
-            let selectedRestaurantId = restaurantsArray[currentIndex - 2].id
-            print(restaurantsArray[currentIndex - 2].id)
+            let selectedRestaurantId = restaurantsArray[currentIndex - 3].id
+            
+            // didSwipeCardAt uses current_index-33 ... unlike above which uses current_index-2
+//            print("curr index - 3 id is ")
+//            print(restaurantsArray[currentIndex - 3].id)
+//            print(restaurantsArray[currentIndex - 3].name)
+            
+//            print("curr index - 2 id is ")
+//            print(restaurantsArray[currentIndex - 2].id)
+//            print(restaurantsArray[currentIndex - 2].name)
             let selectedRestaurant = PFObject(className: "Favorite_Restaurants")
             
             selectedRestaurant["User"] = PFUser.current()!
             selectedRestaurant["Restaurant_id"] = selectedRestaurantId
+            
+            // added this to store restaurant name inside Parse
+            selectedRestaurant["Restaurant_name"] = restaurantsArray[currentIndex-3].name
             
             selectedRestaurant.saveInBackground {(success, error) in
                 if success {
