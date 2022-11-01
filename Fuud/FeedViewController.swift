@@ -63,6 +63,19 @@ class FeedViewController: UIViewController {
         let detailViewController = segue.destination as! FeedViewDetailsController
             detailViewController.r = r
     }
+    
+    //function for user to logout
+    @IBAction func onLogoutButton(_ sender: Any) {
+        PFUser.logOut()
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let delegate = windowScene.delegate as? SceneDelegate else {return}
+        
+        delegate.window?.rootViewController = loginViewController
+        
+    }
+    
 }
 
 // View Delegate group
@@ -94,8 +107,11 @@ extension FeedViewController: KolodaViewDelegate {
     
     //What to do when we run out of cards (This needs to be integrated with infinite scroll
     //along with continuous API calls, but I don't know how to do this at the moment
+    // for now we just had index reset so when user does reach the end, stack resets
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
+        restaurantCardView.resetCurrentCardIndex()
         restaurantCardView.reloadData()
+        
     }
     
     // A rough draft test of what to do when a card is clicked. This just leads to Google
@@ -139,4 +155,6 @@ extension FeedViewController: KolodaViewDataSource {
     func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
         return restaurantsArray.count // images count
     }
+    
+    
 }
