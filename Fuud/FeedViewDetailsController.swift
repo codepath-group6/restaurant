@@ -18,6 +18,9 @@ class FeedViewDetailsController: UIViewController {
     @IBOutlet weak var ratingsLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
+    @IBOutlet weak var addressLabel: UILabel!
+    
+    
     var r: Restaurant!
     
     override func viewDidLoad() {
@@ -29,7 +32,8 @@ class FeedViewDetailsController: UIViewController {
         categoryLabel.text = r.mainCategory
         ratingsLabel.text = String(r.reviews) + " reviews"
         starsImage.image = Stars.dict[r.rating]!
-        //restaurantImage.af.setImage(withURL: r.imageURL)
+        print(r.street)
+        addressLabel.text = "\(r.street[0]), \(r.street[1])" as? String
         // Do any additional setup after loading the view.
     }
     
