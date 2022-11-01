@@ -17,6 +17,8 @@ class Restaurant {
     var rating: Double
     var reviews: Int
     var id: String
+    var street: NSArray
+    //var cityState: String
     
     //Initializer
     init(dict: [String:Any]) {
@@ -28,11 +30,20 @@ class Restaurant {
         url = URL(string: dict["url"] as! String)
         mainCategory = Restaurant.getMainCategory(dict: dict)
         id = dict["id"] as! String
+        street = Restaurant.getLocation(dict: dict)
+        
     }
     
     //Helper function to get first category from restaurant
     static func getMainCategory(dict: [String:Any]) -> String {
         let categories = dict["categories"] as! [[String: Any]]
         return categories[0]["title"] as! String
+    }
+    
+    //Helper function to get the display_address array (to avoid doing multiple calls to each individual
+    //address section
+    static func getLocation(dict: [String:Any]) -> NSArray {
+        let location = dict["location"] as! NSDictionary
+        return location["display_address"] as! NSArray
     }
 }
