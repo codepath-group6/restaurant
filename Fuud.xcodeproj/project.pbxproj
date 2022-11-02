@@ -25,6 +25,7 @@
 		94142AAB29099CBB00E6FAAC /* FuudUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94142AAA29099CBB00E6FAAC /* FuudUITestsLaunchTests.swift */; };
 		9457E0C52909B15800445D35 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9457E0C42909B15800445D35 /* LoginViewController.swift */; };
 		9457E0C72909B18700445D35 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9457E0C62909B18700445D35 /* FeedViewController.swift */; };
+		94BF7FA629123D0C00FA25C1 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF7FA529123D0C00FA25C1 /* LocationViewController.swift */; };
 		A630B016C0246779AD0D106D /* Pods_FuudTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B52B4EB731843EC1ECDD9A /* Pods_FuudTests.framework */; };
 		D7B2D3B5E72C009CF1180617 /* Pods_Fuud_FuudUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B52AB20E29D63C2653A7EFC /* Pods_Fuud_FuudUITests.framework */; };
 		EA513B95263A777C4DC3FC7B /* Pods_Fuud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEE8D85B00BF6EAA03978FE /* Pods_Fuud.framework */; };
@@ -76,6 +77,7 @@
 		94142AAA29099CBB00E6FAAC /* FuudUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuudUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9457E0C42909B15800445D35 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9457E0C62909B18700445D35 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		94BF7FA529123D0C00FA25C1 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		9891B3D63E24094814A8F9DE /* Pods-Fuud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fuud.debug.xcconfig"; path = "Target Support Files/Pods-Fuud/Pods-Fuud.debug.xcconfig"; sourceTree = "<group>"; };
 		D9E6AB647D8C8E02DAB22039 /* Pods-FuudTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuudTests.debug.xcconfig"; path = "Target Support Files/Pods-FuudTests/Pods-FuudTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DBD37441EAB18C93D5D7CC60 /* Pods-Fuud-FuudUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fuud-FuudUITests.release.xcconfig"; path = "Target Support Files/Pods-Fuud-FuudUITests/Pods-Fuud-FuudUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				7BF0EDDB290E62C800188481 /* Restaurant.swift */,
 				7DB9EA67290F5DAC008A88B3 /* FavoritesViewController.swift */,
 				7DB9EA69290F6648008A88B3 /* FavoritesTableViewCell.swift */,
+				94BF7FA529123D0C00FA25C1 /* LocationViewController.swift */,
 			);
 			path = Fuud;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				7DB9EA6A290F6648008A88B3 /* FavoritesTableViewCell.swift in Sources */,
 				9457E0C52909B15800445D35 /* LoginViewController.swift in Sources */,
 				7BA96E05290B58D600F693A1 /* ProjectedCell.swift in Sources */,
+				94BF7FA629123D0C00FA25C1 /* LocationViewController.swift in Sources */,
 				94142A8829099CBA00E6FAAC /* AppDelegate.swift in Sources */,
 				7BF0EDDA290E5AB500188481 /* FeedViewDetailsController.swift in Sources */,
 				9457E0C72909B18700445D35 /* FeedViewController.swift in Sources */,

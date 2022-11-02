@@ -15,13 +15,21 @@ struct API {
         // ––––– TODO: Add your own API key!
         let apikey = "0bKwWtXk4jzc0So7TJR5fMygAjCuxacxcL0jzCbtHcIcGseDmXFu7tIPlDiixlDHmZdHAR2_XYxmSqIWboCMH6CT42baMlR5-U7ftNw_suxaEi_4lqRb31TgRvolY3Yx"
         
-        // Coordinates for San Francisco
-        let lat = 37.773972
-        let long = -122.431297
+//         Coordinates for San Francisco
+//        let lat = 37.773972
+//        let long = -122.431297
+//
         
+//        let url = URL(string: "https://api.yelp.com/v3/transactions/delivery/search?latitude=\(lat)&longitude=\(long)")!
         
-        let url = URL(string: "https://api.yelp.com/v3/transactions/delivery/search?latitude=\(lat)&longitude=\(long)")!
+        var location = "SanFrancisco"
         
+        if let userdefaultLocation = UserDefaults.standard.value(forKey: "userLocation") as? String {
+            location = userdefaultLocation
+        }
+
+        let url = URL(string: "https://api.yelp.com/v3/businesses/search?location=\(location)&categories=restaurants")!
+
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         
         // Insert API Key to request
