@@ -22,7 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //***change string "FeedViewNavigationController" if we change where user is directed after login***
         if PFUser.current() != nil {
             let main = UIStoryboard(name: "Main", bundle: nil)
-            let feedViewNavigationController = main.instantiateViewController(withIdentifier: "FeedViewNavigationController")
+//            let feedViewNavigationController = main.instantiateViewController(withIdentifier: "FeedViewNavigationController")
+            
+            // user directed to LocationNavigationController if logged in
+            let feedViewNavigationController = main.instantiateViewController(withIdentifier: "LocationNavigationController")
+
             window?.rootViewController = feedViewNavigationController
         }
     }
