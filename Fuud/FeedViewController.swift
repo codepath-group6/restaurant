@@ -20,6 +20,9 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        print("this is \(PFUser.current()!.objectId!) in the FeedViewController") // ignore; just a check for curr user id
+        
         restaurantCardView.delegate = self
         restaurantCardView.dataSource = self
         getAPIData()

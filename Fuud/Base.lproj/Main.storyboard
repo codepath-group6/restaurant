@@ -259,7 +259,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ALV-tg-dqS">
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ALV-tg-dqS">
                                 <rect key="frame" x="0.0" y="232" width="414" height="664"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -282,7 +282,7 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="194" id="eP6-vB-b7m"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.1686274707" green="0.21960783" blue="0.2941176593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -291,10 +291,12 @@
                                                 <constraint firstItem="kps-BP-N70" firstAttribute="top" secondItem="7oR-Dd-pR0" secondAttribute="topMargin" constant="7" id="33I-DX-595"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="kps-BP-N70" secondAttribute="trailing" constant="14" id="Ogo-5G-toT"/>
                                                 <constraint firstItem="iir-qd-H0i" firstAttribute="leading" secondItem="7oR-Dd-pR0" secondAttribute="leadingMargin" id="ZHr-Mu-3X1"/>
+                                                <constraint firstItem="iir-qd-H0i" firstAttribute="top" secondItem="7oR-Dd-pR0" secondAttribute="topMargin" constant="7" id="a2c-Lr-aif"/>
                                                 <constraint firstItem="iir-qd-H0i" firstAttribute="centerY" secondItem="7oR-Dd-pR0" secondAttribute="centerY" id="dbC-d9-dOE"/>
                                                 <constraint firstItem="kps-BP-N70" firstAttribute="leading" secondItem="iir-qd-H0i" secondAttribute="trailing" constant="23" id="hbd-Db-JNY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="restaurantImage" destination="iir-qd-H0i" id="xiI-Zy-8ah"/>
                                             <outlet property="restaurantName" destination="kps-BP-N70" id="QFj-PD-yUr"/>

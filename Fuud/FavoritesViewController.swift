@@ -10,17 +10,26 @@ import Parse
 import AlamofireImage
 
 class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
-
+    
     // declare an array to hold Restaurants
     var restaurants = [PFObject]()
-
+    
+    var currentUser_id: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        // **** current session User's id ***
+//        print("this is \(PFUser.current()!.objectId!) in the FavoritesViewController")
+        currentUser_id = PFUser.current()!.objectId!
+//        print(currentUser_id)
+        
         tableView.dataSource = self
         tableView.delegate = self
+        self.tableView.estimatedRowHeight = 200
         
         
         // get all "Favorite_Restaurants" objects from Parse
@@ -34,50 +43,33 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                 if let returnedObjects = objects {
                     // loop through array to get each object
                     for object in returnedObjects {
-                        print(object["Restaurant_name"] as! String)
-                        self.restaurants.append(object)
+                        
+                        // initialize the current Restaurant object
+                        let currentObject_User = object["User"] as! PFUser
+                        // print("this is \(object)'s current User's : \(object["User"])")
+                        
+                        // check if current session user ID is equal to curr Restaurant object's UserID pointer in Parse (one who favorited the restaurant)
+                        if (self.currentUser_id == currentObject_User.objectId!) {
+                            print(object["Restaurant_name"] as! String)
+                            self.restaurants.append(object)
+                        }
                     }
-//                    print(self.restaurants)
+                    //   print(self.restaurants)
                 }
                 
                 // reload data after restaurants array is filled
                 self.tableView.reloadData()
-
+                
             }
         }
-        // need to reload data to tell tableview to update once restaurants array is filled
-//        self.tableView.reloadData()
     }
-
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//
-//        // create query using Parse database retrieval under "Basic Queries" in their docs
-//
-//        let query = PFQuery(className: "Favorite_Restaurants")
-//
-//        query.findObjectsInBackground { (objects, error) in
-//            // no error in fetch
-//            if error == nil {
-//                if let returnedObjects = objects {
-//                    // object array isn't nil
-//                    // loop through array to get each object
-//
-//                    for object in returnedObjects {
-//                        print(object["Restaurant_name"] as! String)
-//                        self.restaurants.append(object)
-//                    }
-//                    print(self.restaurants)
-//                }
-//            }
-//        }
-//        self.tableView.reloadData()
-//    }
-
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurants.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         print(restaurants.count)
@@ -90,9 +82,6 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         print("cellForRowAt has been reached")
         print(restaurant)
         
-//        let name = restaurant["name"] as! String
-        
-        
         // get restaurant name from restaurant object
         let name = restaurant["Restaurant_name"] as! String
         
@@ -103,23 +92,23 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             let imageURL = URL(string: imageURLString)
             cell.restaurantImage.af.setImage(withURL: imageURL!)
         }
-
+        
         return cell
-
+        
     }
-
-
-
+    
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 
