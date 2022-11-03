@@ -7,6 +7,7 @@
 
 import UIKit
 import Parse
+import AlamofireImage
 
 class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -35,14 +36,17 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                     for object in returnedObjects {
                         print(object["Restaurant_name"] as! String)
                         self.restaurants.append(object)
-                        
                     }
-                   // print(self.restaurants)
+//                    print(self.restaurants)
                 }
+                
+                // reload data after restaurants array is filled
+                self.tableView.reloadData()
+
             }
         }
         // need to reload data to tell tableview to update once restaurants array is filled
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
     }
 
 //    override func viewDidAppear(_ animated: Bool) {
@@ -78,7 +82,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         
         print(restaurants.count)
         print("dequeueReusable cell has been reached")
-        // recycle cells and cast MovieCell
+        // recycle cells and cast FavoritesTableViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell") as! FavoritesTableViewCell
         
         let restaurant = restaurants[indexPath.row]
@@ -86,9 +90,19 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         print("cellForRowAt has been reached")
         print(restaurant)
         
-        let name = restaurant["name"] as! String
+//        let name = restaurant["name"] as! String
+        
+        
+        // get restaurant name from restaurant object
+        let name = restaurant["Restaurant_name"] as! String
         
         cell.restaurantName.text = name
+        
+        // set image of restaurant
+        if let imageURLString = restaurant["Restaurant_image_url"] as? String {
+            let imageURL = URL(string: imageURLString)
+            cell.restaurantImage.af.setImage(withURL: imageURL!)
+        }
 
         return cell
 

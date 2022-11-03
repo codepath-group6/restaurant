@@ -109,6 +109,13 @@ extension FeedViewController: KolodaViewDelegate {
             // added this to store restaurant name inside Parse
             selectedRestaurant["Restaurant_name"] = restaurantsArray[currentIndex-3].name
             
+            
+            // convert NSURL to string in order to save in Parse
+            let rest_imageURL: String = restaurantsArray[currentIndex-3].imageURL!.absoluteString
+            // store restaurant image url in Parse
+            selectedRestaurant["Restaurant_image_url"] = rest_imageURL
+            
+            
             selectedRestaurant.saveInBackground {(success, error) in
                 if success {
                     print("Saved favorited restaurant successfully to Parse!")
