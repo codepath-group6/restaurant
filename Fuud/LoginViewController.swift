@@ -55,5 +55,16 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if (segue.identifier == "loginSegue") {
+//
+//            let nextView = segue.destination as! FeedViewController
+//            let userid = sender as! PFUser()
+//            nextView.currentUser_id = sender[
+//
+//
+//        }
+//    }
 
 }
