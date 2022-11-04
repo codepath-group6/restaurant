@@ -26,7 +26,7 @@ The following **required** functionality is completed:
 
 Here's a walkthrough of implemented user stories (build progress):
 
-<img src= 'https://github.com/SYee50/Gif/blob/main/fuud_sprint_1.gif' />
+<img src= 'http://g.recordit.co/vE8X9F602J.gif' />
 
 
 ## Overview
