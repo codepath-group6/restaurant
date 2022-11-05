@@ -10,11 +10,15 @@ import UIKit
 class LocationViewController: UIViewController {
     
     @IBOutlet weak var addressField: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // code to round buttons
+        submitButton.layer.cornerRadius = 15
+        submitButton.clipsToBounds = true
     }
     
     @IBAction func onSubmit(_ sender: Any) {
