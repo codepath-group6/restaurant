@@ -15,6 +15,10 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     
     // declare an array to hold Restaurants
     var restaurants = [PFObject]()
+    // declare a set to hold restaurant IDs
+    var restaurantIDs = Set<String>()
+    // declare an array to hold unique Restaurants to the user
+    var uniqueRestaurants = [PFObject]()
     
     var currentUser_id: String = ""
     
@@ -57,6 +61,20 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                     //   print(self.restaurants)
                 }
                 
+                // add unique restaurant objects to uniqueRestaurants
+                for restObject in self.restaurants {
+                    // initialize restaurant id as String
+                    let restaurant_id = restObject["Restaurant_id"] as! String
+                    
+                    // add restaurant object to arr if the restaurant id is unique
+                    if (!self.restaurantIDs.contains(restaurant_id)) {
+                        self.uniqueRestaurants.append(restObject)
+                    }
+                    
+                    // save restaurant id to restaurantIDs set
+                    self.restaurantIDs.insert(restaurant_id)
+                }
+                
                 // reload data after restaurants array is filled
                 self.tableView.reloadData()
                 
@@ -67,7 +85,8 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurants.count
+//        return restaurants.count
+        return uniqueRestaurants.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,7 +96,8 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         // recycle cells and cast FavoritesTableViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell") as! FavoritesTableViewCell
         
-        let restaurant = restaurants[indexPath.row]
+//        let restaurant = restaurants[indexPath.row]
+        let restaurant = uniqueRestaurants[indexPath.row]
         
         print("cellForRowAt has been reached")
         print(restaurant)
