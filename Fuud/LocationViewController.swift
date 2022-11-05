@@ -23,9 +23,11 @@ class LocationViewController: UIViewController {
         // segue from location screen to restaurant card screen when address entered
         // eventually change this to check for valid address
         if address != "" {
+            // remove spaces in address string
+            let newAddress = address?.replacingOccurrences(of: " ", with: "")
             // set text entered into textfielf to UserDefault
             // persist data across files and app launches
-            UserDefaults.standard.set(address, forKey: "userLocation")
+            UserDefaults.standard.set(newAddress, forKey: "userLocation")
             self.performSegue(withIdentifier: "locationSegue", sender: nil)
         } else {
             print("invalid address")
