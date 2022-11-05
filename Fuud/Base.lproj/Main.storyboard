@@ -157,13 +157,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13Q-2v-Wte">
-                                <rect key="frame" x="124" y="786" width="166" height="44"/>
+                                <rect key="frame" x="145" y="786" width="125" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Favorites List">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Favorites">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="25"/>
                                     <color key="baseForegroundColor" red="0.1686274707" green="0.21960783" blue="0.2941176593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <color key="baseBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.94509804249999996" green="0.90196073060000004" blue="0.87450981139999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="3xb-xk-dM5" kind="show" identifier="SegueToFavorites" id="msb-DI-in1"/>
@@ -215,10 +215,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3L-qL-UfP">
-                                <rect key="frame" x="50" y="336" width="314" height="31"/>
+                                <rect key="frame" x="50" y="336" width="314" height="29"/>
                                 <color key="tintColor" red="0.28106844800000003" green="0.30090749259999999" blue="0.27997855300000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Submit"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Submit">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="0.0"/>
+                                    <color key="baseForegroundColor" red="0.1686274707" green="0.21960783" blue="0.2941176593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.94509804249999996" green="0.90196073060000004" blue="0.87450981139999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="onSubmit:" destination="Zor-TZ-caZ" eventType="touchUpInside" id="3PC-pu-Fcb"/>
                                 </connections>
@@ -249,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQo-Qb-7Wf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12" y="98"/>
+            <point key="canvasLocation" x="-13.043478260869566" y="97.767857142857139"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="6PM-km-MmO">
