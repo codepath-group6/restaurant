@@ -16,14 +16,13 @@ class FeedViewController: UIViewController {
     var restaurantsArray: [Restaurant] = []
     var currentIndex: Int = 0
     
-    var citiesArray: [Int] = []
+    // cities array already sorted based on proximity to user-city-input
+    var citiesArray: [String] = []
     
     @IBOutlet weak var restaurantCardView: KolodaView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        print("this is \(PFUser.current()!.objectId!) in the FeedViewController") // ignore; just a check for curr user id
         
         restaurantCardView.delegate = self
         restaurantCardView.dataSource = self
@@ -66,7 +65,7 @@ class FeedViewController: UIViewController {
             }
             self.citiesArray = cities
             print("Get Cities API Data called")
-            print(self.citiesArray)
+            print("From FeedViewController.swift: The closest city names array in order is \(self.citiesArray)")
         }
     }
     
@@ -147,33 +146,53 @@ extension FeedViewController: KolodaViewDelegate {
     // for now we just had index reset so when user does reach the end, stack resets
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
         
+        
+        // ******************************** Infinite Scroll using City Name ********************************
         print("current city card stack ran out of cards")
         
-        // ******************** figure a way out to reset the location with nearby city ********************
+        // ******************** Reset the current city to its nearest city ********************
         
-        // Overwrite the current city with new city in UserDefaults for new location
-        UserDefaults.standard.set("Pasadena", forKey: "userLocation")
-        
-        // get the current city
-        let current_location = UserDefaults.standard.string(forKey: "userLocation")
-        print(current_location!)
+        // cities array has to have available cities
+        if (citiesArray.count > 0) {
+            
+            // grab the first (closest) city to Current City
+            let closest_city = citiesArray.removeFirst()
+            
+            print("next city in queue is \(closest_city)")
+            
+            
+            
+            
+            // Overwrite the current city with new city in UserDefaults for new location
+            UserDefaults.standard.set("Pasadena", forKey: "userLocation")
+            
+            // CHANGE INTO vvvvvv once I transform the User Input city into a wikiDataId or City Id
+//            UserDefaults.standard.set(closest_city, forKey: "userLocation")
+            
+            // get the current city
+            let current_location = UserDefaults.standard.string(forKey: "userLocation")
+            print("current location is \(current_location!)")
 
-        
-        
-        // **************************************************************************************
-        
-        // get API response for new city restaurants and populate restaurant array
-        getAPIData()
+            
+            // **************************************************************************************
+            
+            // get API response for new city restaurants and populate restaurant array
+            getAPIData()
 
-        // slows the execution of code inside block to run after getAPIData()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.375)
-        {
-            // resets card stack with new location restaurants
-            self.restaurantCardView.resetCurrentCardIndex()
-            self.restaurantCardView.reloadData()
+            // slows the execution of code inside block to run after getAPIData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.375)
+            {
+                // resets card stack with new location restaurants
+                self.restaurantCardView.resetCurrentCardIndex()
+                self.restaurantCardView.reloadData()
+            }
+            print("the number of cards after calling Koloda num of cards is \(kolodaNumberOfCards(koloda))")
+            print("card view was reloaded")
+            print(citiesArray)
+            }
+        else {
+            print("no more cities... end program")
         }
-        print("the number of cards after calling Koloda num of cards is \(kolodaNumberOfCards(koloda))")
-        print("card view was reloaded")
     }
     
     

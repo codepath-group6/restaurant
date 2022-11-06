@@ -21,6 +21,7 @@ class LocationViewController: UIViewController {
         submitButton.clipsToBounds = true
     }
     
+    // User submits a City of choice
     @IBAction func onSubmit(_ sender: Any) {
         let address = addressField.text
         

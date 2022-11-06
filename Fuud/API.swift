@@ -23,7 +23,7 @@ struct API {
         }
         
         // set card limit to 50 (max)... default is 20
-        let url = URL(string: "https://api.yelp.com/v3/businesses/search?location=\(location)&categories=restaurants&limit=50")!
+        let url = URL(string: "https://api.yelp.com/v3/businesses/search?location=\(location)&categories=restaurants&limit=10")!
         
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         
@@ -73,10 +73,9 @@ struct API {
     }
     
     // completion handler function to wait for session to complete before returning
-    static func getNearbyCities(completion: @escaping ([Int]?) -> Void) {
+    static func getNearbyCities(completion: @escaping ([String]?) -> Void) {
         
-        // Important task!!
-        // Figure how to get wikiDataId or cityId from User Input to store underneath api
+        // Figure how to get wikiDataId or cityId from User Input to replace City ID under request URL
         // *********************************************************************************************
         
         
@@ -117,11 +116,10 @@ struct API {
                 let nearby_cities_json = response_json["data"] as! [NSDictionary]
                 print(nearby_cities_json)
                 
-                // sample test closest city to (South Pasadena)...Alhambra - city name and id
-//                print(nearby_cities_json[0]["city"] as! String)
-//                print(nearby_cities_json[0]["id"] as! Int)
+//                print(nearby_cities_json[0]["city"] as! String) --> reads city name
+//                print(nearby_cities_json[0]["id"] as! Int) --> reads city id
                 
-                var closest_city_ids: [Int] = []
+                var closest_city_names: [String] = []
                 
                 // append each id from sorted distance dictionary into a city array
                 for current_city in nearby_cities_json {
@@ -130,12 +128,12 @@ struct API {
                     let city = City(dict: current_city as! [String : Any])
                     
                     // append each City id (distance already in ascending order b/c of how json format returns)
-                    closest_city_ids.append(city.id)
-                    print(closest_city_ids)
+                    closest_city_names.append(city.name)
                 }
+                print("From API.swift: The closest city names array in order is \(closest_city_names)")
                 
                 // pass array of nearby city ids using completion
-                return completion(closest_city_ids)
+                return completion(closest_city_names)
             }
             
         })

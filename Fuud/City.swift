@@ -7,6 +7,7 @@
 
 import Foundation
 
+// City struct to hold each city properties
 struct City {
     let name: String
     let id: Int
