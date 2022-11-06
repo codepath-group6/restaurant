@@ -33,6 +33,10 @@ class LocationViewController: UIViewController {
             // persist data across files and app launches
             UserDefaults.standard.set(newAddress, forKey: "userLocation")
             self.performSegue(withIdentifier: "locationSegue", sender: nil)
+            
+            for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+                print("\(key) = \(value) \n")
+            }
         } else {
             print("invalid address")
         }

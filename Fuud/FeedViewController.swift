@@ -26,6 +26,7 @@ class FeedViewController: UIViewController {
         restaurantCardView.delegate = self
         restaurantCardView.dataSource = self
         getAPIData()
+        
     }
     
     //Button to use instead of a swipe right
@@ -51,6 +52,7 @@ class FeedViewController: UIViewController {
             }
             self.restaurantsArray = restaurants
             self.restaurantCardView.reloadData()
+            print("Get API Data called")
         }
     }
     
@@ -138,15 +140,29 @@ extension FeedViewController: KolodaViewDelegate {
     //along with continuous API calls, but I don't know how to do this at the moment
     // for now we just had index reset so when user does reach the end, stack resets
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-        restaurantCardView.resetCurrentCardIndex()
-        restaurantCardView.reloadData()
         
+        print("current city card stack ran out of cards")
+        
+        // Overwrite the current city with new city in UserDefaults for new location
+        UserDefaults.standard.set("Pasadena", forKey: "userLocation")
+        
+        
+        
+        
+        // get API response and populate restaurant array with new city restaurants
+        getAPIData()
+
+        // slows the execution of code inside block to run after getAPIData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.375)
+        {
+            // figure out a way to not show the reseted 'Omakase' card
+            self.restaurantCardView.resetCurrentCardIndex()
+            self.restaurantCardView.reloadData()
+        }
+        print("the number of cards after calling Koloda num of cards is \(kolodaNumberOfCards(koloda))")
+        print("card view was reloaded")
     }
     
-    // A rough draft test of what to do when a card is clicked. This just leads to Google
-    //func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-    //    UIApplication.shared.openURL(URL(string: "https://google.com/")!)
-    //}
     
     // Koloda method for what to do when a card is clicked. This creates a pop up with arbitrary text
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {

@@ -23,7 +23,7 @@ struct API {
 //        let url = URL(string: "https://api.yelp.com/v3/transactions/delivery/search?latitude=\(lat)&longitude=\(long)")!
         
         // get location typed in by user in location view controller
-        var location = "SanFrancisco"
+        var location = ""
         if let userdefaultLocation = UserDefaults.standard.value(forKey: "userLocation") as? String {
             location = userdefaultLocation
         }
