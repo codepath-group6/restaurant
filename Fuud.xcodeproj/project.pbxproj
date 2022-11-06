@@ -13,6 +13,7 @@
 		7BA96E09290B5BCC00F693A1 /* YelpStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA96E08290B5BCC00F693A1 /* YelpStars.swift */; };
 		7BF0EDDA290E5AB500188481 /* FeedViewDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0EDD9290E5AB500188481 /* FeedViewDetailsController.swift */; };
 		7BF0EDDC290E62C800188481 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0EDDB290E62C800188481 /* Restaurant.swift */; };
+		7D75094D2917BB3A00C6967F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D75094C2917BB3A00C6967F /* City.swift */; };
 		7DB9EA68290F5DAC008A88B3 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9EA67290F5DAC008A88B3 /* FavoritesViewController.swift */; };
 		7DB9EA6A290F6648008A88B3 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9EA69290F6648008A88B3 /* FavoritesTableViewCell.swift */; };
 		94142A8829099CBA00E6FAAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94142A8729099CBA00E6FAAC /* AppDelegate.swift */; };
@@ -61,6 +62,7 @@
 		7BA96E08290B5BCC00F693A1 /* YelpStars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpStars.swift; sourceTree = "<group>"; };
 		7BF0EDD9290E5AB500188481 /* FeedViewDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewDetailsController.swift; sourceTree = "<group>"; };
 		7BF0EDDB290E62C800188481 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		7D75094C2917BB3A00C6967F /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		7DB9EA67290F5DAC008A88B3 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		7DB9EA69290F6648008A88B3 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		94142A8429099CBA00E6FAAC /* Fuud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuud.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +178,7 @@
 				7DB9EA67290F5DAC008A88B3 /* FavoritesViewController.swift */,
 				7DB9EA69290F6648008A88B3 /* FavoritesTableViewCell.swift */,
 				94BF7FA529123D0C00FA25C1 /* LocationViewController.swift */,
+				7D75094C2917BB3A00C6967F /* City.swift */,
 			);
 			path = Fuud;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				94142A8A29099CBA00E6FAAC /* SceneDelegate.swift in Sources */,
 				7BA96E09290B5BCC00F693A1 /* YelpStars.swift in Sources */,
 				7DB9EA68290F5DAC008A88B3 /* FavoritesViewController.swift in Sources */,
+				7D75094D2917BB3A00C6967F /* City.swift in Sources */,
 				7BF0EDDC290E62C800188481 /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

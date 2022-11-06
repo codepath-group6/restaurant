@@ -16,6 +16,8 @@ class FeedViewController: UIViewController {
     var restaurantsArray: [Restaurant] = []
     var currentIndex: Int = 0
     
+    var citiesArray: [Int] = []
+    
     @IBOutlet weak var restaurantCardView: KolodaView!
     
     override func viewDidLoad() {
@@ -26,7 +28,7 @@ class FeedViewController: UIViewController {
         restaurantCardView.delegate = self
         restaurantCardView.dataSource = self
         getAPIData()
-        
+        getCitiesAPIData()
     }
     
     //Button to use instead of a swipe right
@@ -53,6 +55,18 @@ class FeedViewController: UIViewController {
             self.restaurantsArray = restaurants
             self.restaurantCardView.reloadData()
             print("Get API Data called")
+        }
+    }
+    
+    // API call for nearby cities
+    func getCitiesAPIData() {
+        API.getNearbyCities() { (cities) in
+            guard let cities = cities else {
+                return
+            }
+            self.citiesArray = cities
+            print("Get Cities API Data called")
+            print(self.citiesArray)
         }
     }
     
@@ -97,15 +111,7 @@ extension FeedViewController: KolodaViewDelegate {
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
         if direction == .right {
             let selectedRestaurantId = restaurantsArray[currentIndex - 3].id
-            
-            // didSwipeCardAt uses current_index-33 ... unlike above which uses current_index-2
-//            print("curr index - 3 id is ")
-//            print(restaurantsArray[currentIndex - 3].id)
-//            print(restaurantsArray[currentIndex - 3].name)
-            
-//            print("curr index - 2 id is ")
-//            print(restaurantsArray[currentIndex - 2].id)
-//            print(restaurantsArray[currentIndex - 2].name)
+
             let selectedRestaurant = PFObject(className: "Favorite_Restaurants")
             
             selectedRestaurant["User"] = PFUser.current()!
@@ -143,19 +149,26 @@ extension FeedViewController: KolodaViewDelegate {
         
         print("current city card stack ran out of cards")
         
+        // ******************** figure a way out to reset the location with nearby city ********************
+        
         // Overwrite the current city with new city in UserDefaults for new location
         UserDefaults.standard.set("Pasadena", forKey: "userLocation")
         
+        // get the current city
+        let current_location = UserDefaults.standard.string(forKey: "userLocation")
+        print(current_location!)
+
         
         
+        // **************************************************************************************
         
-        // get API response and populate restaurant array with new city restaurants
+        // get API response for new city restaurants and populate restaurant array
         getAPIData()
 
         // slows the execution of code inside block to run after getAPIData()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.375)
         {
-            // figure out a way to not show the reseted 'Omakase' card
+            // resets card stack with new location restaurants
             self.restaurantCardView.resetCurrentCardIndex()
             self.restaurantCardView.reloadData()
         }
@@ -200,6 +213,4 @@ extension FeedViewController: KolodaViewDataSource {
     func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
         return restaurantsArray.count // images count
     }
-    
-    
 }

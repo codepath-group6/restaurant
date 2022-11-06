@@ -15,21 +15,16 @@ struct API {
         // ––––– TODO: Add your own API key!
         let apikey = "0bKwWtXk4jzc0So7TJR5fMygAjCuxacxcL0jzCbtHcIcGseDmXFu7tIPlDiixlDHmZdHAR2_XYxmSqIWboCMH6CT42baMlR5-U7ftNw_suxaEi_4lqRb31TgRvolY3Yx"
         
-//         Coordinates for San Francisco
-//        let lat = 37.773972
-//        let long = -122.431297
-//
-        
-//        let url = URL(string: "https://api.yelp.com/v3/transactions/delivery/search?latitude=\(lat)&longitude=\(long)")!
         
         // get location typed in by user in location view controller
         var location = ""
         if let userdefaultLocation = UserDefaults.standard.value(forKey: "userLocation") as? String {
             location = userdefaultLocation
         }
-
-        let url = URL(string: "https://api.yelp.com/v3/businesses/search?location=\(location)&categories=restaurants")!
-
+        
+        // set card limit to 50 (max)... default is 20
+        let url = URL(string: "https://api.yelp.com/v3/businesses/search?location=\(location)&categories=restaurants&limit=50")!
+        
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         
         // Insert API Key to request
@@ -42,8 +37,8 @@ struct API {
                 print(error.localizedDescription)
             } else if let data = data {
                 
-        
-
+                
+                
                 // ––––– TODO: Get data from API and return it using completion
                 
                 // 1. Convert json response to a dictionary
@@ -57,23 +52,96 @@ struct API {
                 
                 // Get array of restaurant dictionaries
                 let restDictionaries = dataDictionary["businesses"] as! [[String: Any]]
-
+                
                 //print(restDictionaries)
                 // Variable to store array of Restaurants
                 var restaurants: [Restaurant] = []
-
+                
                 // Use each restaurant dictionary to initialize Restaurant object
                 for dictionary in restDictionaries {
                     let restaurant = Restaurant.init(dict: dictionary)
                     restaurants.append(restaurant) // add to restaurants array
                 }
-
+                
                 return completion(restaurants)
                 
-                }
             }
-        
-            task.resume()
-        
         }
+        
+        task.resume()
+        
     }
+    
+    // completion handler function to wait for session to complete before returning
+    static func getNearbyCities(completion: @escaping ([Int]?) -> Void) {
+        
+        // Important task!!
+        // Figure how to get wikiDataId or cityId from User Input to store underneath api
+        // *********************************************************************************************
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // *************** Networking credentials / Methods: START *********************************
+        let headers = [
+            "X-RapidAPI-Key": "8370ebca44mshcad83bf122f441cp115a31jsn3c9da19ef45d",
+            "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
+        ]
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "https://wft-geo-db.p.rapidapi.com/v1/geo/cities/Q852581/nearbyCities?radius=5&minPopulation=20000")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        // *************** Networking credentials / Methods: END *********************************
+        
+        // ************ Start Session *********************
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            
+            // if error is not nil (aka error exists)
+            if let error = error {
+                print(error.localizedDescription)
+                
+            // if data is not nil (aka data exists) --> transform response into array
+            } else if let data = data {
+                
+                let response_json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                // dictionary of nearby cities
+                let nearby_cities_json = response_json["data"] as! [NSDictionary]
+                print(nearby_cities_json)
+                
+                // sample test closest city to (South Pasadena)...Alhambra - city name and id
+//                print(nearby_cities_json[0]["city"] as! String)
+//                print(nearby_cities_json[0]["id"] as! Int)
+                
+                var closest_city_ids: [Int] = []
+                
+                // append each id from sorted distance dictionary into a city array
+                for current_city in nearby_cities_json {
+                    
+                    // create a Struct City to hold each city details
+                    let city = City(dict: current_city as! [String : Any])
+                    
+                    // append each City id (distance already in ascending order b/c of how json format returns)
+                    closest_city_ids.append(city.id)
+                    print(closest_city_ids)
+                }
+                
+                // pass array of nearby city ids using completion
+                return completion(closest_city_ids)
+            }
+            
+        })
+        
+        dataTask.resume()
+    }
+    
+    
+}
