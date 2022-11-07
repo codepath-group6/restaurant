@@ -29,7 +29,7 @@ struct API {
         }
         
         // set card limit by changing value of limit=            default: 20 | max is 50
-        let url = URL(string: "https://api.yelp.com/v3/businesses/search?location=\(location)&categories=restaurants&limit=25")!
+        let url = URL(string: "https://api.yelp.com/v3/businesses/search?location=\(location)&categories=restaurants&limit=10")!
         
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         
@@ -153,7 +153,7 @@ struct API {
 
         // use wikiDataID of User City Input into GeoDB Cities to fetch nearby cities
         // change limit= value to desired number of nearest cities
-        let request = NSMutableURLRequest(url: NSURL(string: "https://wft-geo-db.p.rapidapi.com/v1/geo/cities/\(user_input_id)/nearbyCities?radius=10&minPopulation=20000&limit=10")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://wft-geo-db.p.rapidapi.com/v1/geo/cities/\(user_input_id)/nearbyCities?radius=10&minPopulation=20000&limit=5")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "GET"
