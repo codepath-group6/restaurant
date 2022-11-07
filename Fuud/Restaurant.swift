@@ -38,13 +38,13 @@ class Restaurant {
     
     }
     
-    //Helper function to get first category from restaurant
+    //Helper function to get latitude from restaurant
     static func getLatitude(dict: [String:Any]) -> Double {
         let latitude = dict["coordinates"] as! [String: Any]
         return latitude["latitude"] as! Double
     }
     
-    //Helper function to get first category from restaurant
+    //Helper function to get longitude from restaurant
     static func getLongitude(dict: [String:Any]) -> Double {
         let longitude = dict["coordinates"] as! [String: Any]
         return longitude["longitude"] as! Double
