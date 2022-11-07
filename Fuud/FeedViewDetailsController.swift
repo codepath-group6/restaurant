@@ -7,8 +7,10 @@
 
 import UIKit
 import AlamofireImage
+import MapKit
+import CoreLocation
 
-class FeedViewDetailsController: UIViewController {
+class FeedViewDetailsController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var detailedView: UIView!
     @IBOutlet weak var phoneLabel: UILabel!
@@ -17,8 +19,8 @@ class FeedViewDetailsController: UIViewController {
     @IBOutlet weak var starsImage: UIImageView!
     @IBOutlet weak var ratingsLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
-    
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet var mapView: MKMapView!
     
     
     var r: Restaurant!
@@ -34,8 +36,22 @@ class FeedViewDetailsController: UIViewController {
         starsImage.image = Stars.dict[r.rating]!
         print(r.street)
         addressLabel.text = "\(r.street[0]), \(r.street[1])" as? String
-        // Do any additional setup after loading the view.
+        print("Latitude: \(r.latitude)")
+        print("longitude: \(r.longitude)")
+        
+        // Annotation of map pin to display lat and long + restaurant name and category
+        let annotation1 = MKPointAnnotation()
+        annotation1.coordinate = CLLocationCoordinate2D(latitude: r.latitude, longitude: r.longitude)
+        annotation1.title = r.name
+        annotation1.subtitle = r.mainCategory
+        self.mapView.addAnnotation(annotation1)
+        mapView.centerCoordinate = annotation1.coordinate
+        self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+      
+
     }
+    
+    
     
 
     /*
