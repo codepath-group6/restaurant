@@ -21,6 +21,7 @@ class LocationViewController: UIViewController {
         submitButton.clipsToBounds = true
     }
     
+    // User submits a City of choice
     @IBAction func onSubmit(_ sender: Any) {
         let address = addressField.text
         
@@ -33,6 +34,7 @@ class LocationViewController: UIViewController {
             // persist data across files and app launches
             UserDefaults.standard.set(newAddress, forKey: "userLocation")
             self.performSegue(withIdentifier: "locationSegue", sender: nil)
+        
         } else {
             print("invalid address")
         }

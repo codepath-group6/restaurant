@@ -19,6 +19,8 @@ class Restaurant {
     var id: String
     var street: NSArray
     //var cityState: String
+    var latitude: Double
+    var longitude: Double
     
     //Initializer
     init(dict: [String:Any]) {
@@ -31,7 +33,21 @@ class Restaurant {
         mainCategory = Restaurant.getMainCategory(dict: dict)
         id = dict["id"] as! String
         street = Restaurant.getLocation(dict: dict)
-        
+        latitude = Restaurant.getLatitude(dict: dict)
+        longitude = Restaurant.getLongitude(dict: dict)
+    
+    }
+    
+    //Helper function to get first category from restaurant
+    static func getLatitude(dict: [String:Any]) -> Double {
+        let latitude = dict["coordinates"] as! [String: Any]
+        return latitude["latitude"] as! Double
+    }
+    
+    //Helper function to get first category from restaurant
+    static func getLongitude(dict: [String:Any]) -> Double {
+        let longitude = dict["coordinates"] as! [String: Any]
+        return longitude["longitude"] as! Double
     }
     
     //Helper function to get first category from restaurant
