@@ -27,7 +27,19 @@ class FeedViewController: UIViewController {
         restaurantCardView.delegate = self
         restaurantCardView.dataSource = self
         getAPIData()
-        getCitiesAPIData()
+        
+        // slow down getCityId API call to happen after fetching Restaurants API
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2)
+        {
+            API.getCityId()
+        }
+        
+        // slow down getNearbyCities API call to happen after fetching Restaurants --> Current City ID
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3)
+        {
+            self.getCitiesAPIData()
+        }
+        
     }
     
     //Button to use instead of a swipe right
@@ -101,7 +113,6 @@ class FeedViewController: UIViewController {
         delegate.window?.rootViewController = loginViewController
         
     }
-    
 }
 
 // View Delegate group
@@ -141,11 +152,11 @@ extension FeedViewController: KolodaViewDelegate {
         }
     }
     
+    
     //What to do when we run out of cards (This needs to be integrated with infinite scroll
     //along with continuous API calls, but I don't know how to do this at the moment
     // for now we just had index reset so when user does reach the end, stack resets
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-        
         
         // ******************************** Infinite Scroll using City Name ********************************
         print("current city card stack ran out of cards")
@@ -164,19 +175,19 @@ extension FeedViewController: KolodaViewDelegate {
             
             
             // Overwrite the current city with new city in UserDefaults for new location
-            UserDefaults.standard.set("Pasadena", forKey: "userLocation")
+//            UserDefaults.standard.set("Pasadena", forKey: "userLocation")
             
             // CHANGE INTO vvvvvv once I transform the User Input city into a wikiDataId or City Id
-//            UserDefaults.standard.set(closest_city, forKey: "userLocation")
+            UserDefaults.standard.set(closest_city, forKey: "userLocation")
             
-            // get the current city
+            // **************** Ignore: Checks what is current city *******************
             let current_location = UserDefaults.standard.string(forKey: "userLocation")
             print("current location is \(current_location!)")
-
-            
+            // ****************************************************************************************
+            // At this point, new City name is loaded into UserDefaults
             // **************************************************************************************
             
-            // get API response for new city restaurants and populate restaurant array
+            // ********* get API response for the new City and populate restaurant array ***********
             getAPIData()
 
             // slows the execution of code inside block to run after getAPIData()
