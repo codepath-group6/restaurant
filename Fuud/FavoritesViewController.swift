@@ -91,21 +91,28 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print(restaurants.count)
-        print("dequeueReusable cell has been reached")
+//        print(restaurants.count)
+//        print("dequeueReusable cell has been reached")
         // recycle cells and cast FavoritesTableViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell") as! FavoritesTableViewCell
         
 //        let restaurant = restaurants[indexPath.row]
         let restaurant = uniqueRestaurants[indexPath.row]
         
-        print("cellForRowAt has been reached")
-        print(restaurant)
+//        print("cellForRowAt has been reached")
+//        print(restaurant)
         
         // get restaurant name from restaurant object
         let name = restaurant["Restaurant_name"] as! String
+        let cuisine = restaurant["Restaurant_cuisine"] as! String
+        let review = restaurant["Restaurant_ratings"] as! Int
+        let stars = restaurant["Restaurant_stars"] as! Double
         
         cell.restaurantName.text = name
+        cell.cuisineLabel.text = cuisine
+        cell.reviewLabel.text = String(review)
+        cell.restaurantStars.image = Stars.dict[stars]!
+        
         
         // set image of restaurant
         if let imageURLString = restaurant["Restaurant_image_url"] as? String {
@@ -116,6 +123,18 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.uniqueRestaurants.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     
     
     

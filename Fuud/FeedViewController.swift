@@ -121,7 +121,7 @@ extension FeedViewController: KolodaViewDelegate {
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
         if direction == .right {
             let selectedRestaurantId = restaurantsArray[currentIndex - 3].id
-
+            
             let selectedRestaurant = PFObject(className: "Favorite_Restaurants")
             
             selectedRestaurant["User"] = PFUser.current()!
@@ -129,13 +129,14 @@ extension FeedViewController: KolodaViewDelegate {
             
             // added this to store restaurant name inside Parse
             selectedRestaurant["Restaurant_name"] = restaurantsArray[currentIndex-3].name
-            
-            
+            selectedRestaurant["Restaurant_cuisine"] = restaurantsArray[currentIndex - 3].mainCategory
+            selectedRestaurant["Restaurant_ratings"] = restaurantsArray[currentIndex - 3].reviews
+            selectedRestaurant["Restaurant_stars"] = restaurantsArray[currentIndex - 3].rating
+        
             // convert NSURL to string in order to save in Parse
             let rest_imageURL: String = restaurantsArray[currentIndex-3].imageURL!.absoluteString
             // store restaurant image url in Parse
             selectedRestaurant["Restaurant_image_url"] = rest_imageURL
-            
             
             selectedRestaurant.saveInBackground {(success, error) in
                 if success {
