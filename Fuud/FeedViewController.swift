@@ -129,6 +129,9 @@ extension FeedViewController: KolodaViewDelegate {
             
             // added this to store restaurant name inside Parse
             selectedRestaurant["Restaurant_name"] = restaurantsArray[currentIndex-3].name
+            selectedRestaurant["Restaurant_cuisine"] = restaurantsArray[currentIndex-3].mainCategory
+            selectedRestaurant["Restaurant_review_num"] = restaurantsArray[currentIndex-3].reviews
+            selectedRestaurant["Restaurant_stars"] = restaurantsArray[currentIndex-3].rating
             
             
             // convert NSURL to string in order to save in Parse
