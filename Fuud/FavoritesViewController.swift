@@ -83,7 +83,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
-    
+    // attempt at remove function, delete shows up by swiping but row doesn't delete
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return restaurants.count
         return uniqueRestaurants.count
