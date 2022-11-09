@@ -29,7 +29,6 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         // **** current session User's id ***
 //        print("this is \(PFUser.current()!.objectId!) in the FavoritesViewController")
         currentUser_id = PFUser.current()!.objectId!
-//        print(currentUser_id)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -38,6 +37,9 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         
         // get all "Favorite_Restaurants" objects from Parse
         let query = PFQuery(className: "Favorite_Restaurants")
+        
+        // set query results limit to maximum - 1000
+        query.limit = 1000
         
         query.findObjectsInBackground { (objects, error) in
             // no error in fetch
@@ -58,7 +60,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                             self.restaurants.append(object)
                         }
                     }
-                    //   print(self.restaurants)
+                    // print(self.restaurants)
                 }
                 
                 // add unique restaurant objects to uniqueRestaurants
