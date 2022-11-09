@@ -11,6 +11,7 @@ class LocationViewController: UIViewController {
     
     @IBOutlet weak var addressField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -20,6 +21,19 @@ class LocationViewController: UIViewController {
         submitButton.layer.cornerRadius = 15
         submitButton.clipsToBounds = true
     }
+    
+    
+    // User presses skip to go to restaurant card page(uses previously saved location)
+    @IBAction func onSkip(_ sender: Any) {
+        // segue from location to restaurant card screen
+        // if a previous location has been entered
+        if UserDefaults.standard.object(forKey: "userLocation") != nil {
+            self.performSegue(withIdentifier: "locationSegue", sender: nil)
+        } else {
+            print("No previous location!")
+        }
+    }
+    
     
     // User submits a City of choice
     @IBAction func onSubmit(_ sender: Any) {
