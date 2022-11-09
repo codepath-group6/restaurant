@@ -191,7 +191,7 @@ extension FeedViewController: KolodaViewDelegate {
             getAPIData()
 
             // slows the execution of code inside block to run after getAPIData()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.375)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.45)
             {
                 // resets card stack with new location restaurants
                 self.restaurantCardView.resetCurrentCardIndex()
