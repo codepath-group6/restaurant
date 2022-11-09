@@ -85,7 +85,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
-    
+    // attempt at remove function, delete shows up by swiping but row doesn't delete
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return restaurants.count
         return uniqueRestaurants.count
@@ -106,8 +106,14 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         
         // get restaurant name from restaurant object
         let name = restaurant["Restaurant_name"] as! String
-        
+        let cuisine = restaurant["Restaurant_cuisine"] as! String
+        let rest_stars = restaurant["Restaurant_stars"] as! Double
+        let reviews = restaurant["Restaurant_review_num"] as! Int
+                
         cell.restaurantName.text = name
+        cell.cuisineLabel.text = cuisine
+        cell.reviewLabel.text = String(reviews)
+        cell.restaurantStars.image = Stars.dict[rest_stars]!
         
         // set image of restaurant
         if let imageURLString = restaurant["Restaurant_image_url"] as? String {
