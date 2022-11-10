@@ -125,18 +125,30 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         
     }
     
-    // attempt at delete row functions
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.uniqueRestaurants.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            // Delete the row from the data source
+            let query = PFQuery(className: "Favorite_Restaurants")
+            let currentRest = uniqueRestaurants[indexPath.row]
+            query.whereKey("objectId", equalTo: currentRest.objectId!)
+            
+            query.findObjectsInBackground(block: { (restaurants, error) in
+                if error != nil {
+                    print("THERE WAS AN ERROR DELETING THE OBJECT")
+                } else {
+                    for object in restaurants!{
+                        self.uniqueRestaurants.remove(at: indexPath.row)
+                        object.deleteInBackground()
+                        self.tableView.reloadData()
+                    }
+                }
+            })
         }
     }
-    
     
     
     /*
