@@ -19,7 +19,7 @@ The following **required** functionality is completed:
 - [x] Mapview added to details screen, focusing on annotated restaurant location and surrounding streets
 - [x] Swipe-to-remove added to Favorites list screen
 
-## Final Video Walkthrough
+## Sprint#3 Video Walkthrough
 
 Here's a walkthrough of implemented user stories (build progress):
 
