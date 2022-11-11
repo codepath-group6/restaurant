@@ -19,7 +19,7 @@ The following **required** functionality is completed:
 - [x] Mapview added to details screen, focusing on annotated restaurant location and surrounding streets
 - [x] Swipe-to-remove added to Favorites list screen
 
-## Video Walkthrough
+## Final Video Walkthrough
 
 Here's a walkthrough of implemented user stories (build progress):
 
@@ -39,7 +39,7 @@ Here's a walkthrough of implemented user stories (build progress):
 - [x] Screen shows one restaurant suggestion at a time. Suggestion includes: restaurant image, name, yelp stars, and cuisine type. User can swipe to get different restaurant suggestion.
 
 
-## Video Walkthrough
+## Sprint#2 Video Walkthrough
 
 Here's a walkthrough of implemented user stories (build progress):
 
