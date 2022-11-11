@@ -1,7 +1,7 @@
 Group Milestone - README
 ===
 
-# Fuud
+# FÜÜD
  
 ## Table of Contents
 1. [Completed User Stories](#Completed-User-Stories)
@@ -12,6 +12,12 @@ Group Milestone - README
 
 ## Completed User Stories
 The following **required** functionality is completed:
+
+### Sprint 3:
+- [x] Layout and overall design streamlined, including update to logo as: FÜÜD
+- [x] Implemented manual input for city after login including a "skip" option for existing users
+- [x] Mapview added to details screen, focusing on annotated restaurant location and surrounding streets
+- [x] Swipe-to-remove added to Favorites list screen
 
 ### Sprint 2:
 - [x] Once user signs up or logs in, user will come to screen asking for location input which will render restaurant cards for the user to swipe through.
