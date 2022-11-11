@@ -19,6 +19,12 @@ The following **required** functionality is completed:
 - [x] Mapview added to details screen, focusing on annotated restaurant location and surrounding streets
 - [x] Swipe-to-remove added to Favorites list screen
 
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories (build progress):
+
+<img src= 'https://github.com/LaUrrego/restaurant/blob/main/images/Sprint3.gif' />
+
 ### Sprint 2:
 - [x] Once user signs up or logs in, user will come to screen asking for location input which will render restaurant cards for the user to swipe through.
 - [x] User will stay logged in as they navigate through app, user will be able to log out too. 
