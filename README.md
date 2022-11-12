@@ -3,8 +3,8 @@ FÜÜD - README
  
 ## Table of Contents
 1. [Overview](#Overview)
-1. [Final Demo](#Final-Demo)
-1. [Completed User Stories](#Completed-User-Stories)
+1. [Demo](#Demo)
+1. [User Stories & Build Progress](#User-Stories-&-Build-Progress)
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
 2. [Schema](#Schema)
@@ -22,11 +22,14 @@ FÜÜD is a food recommendation app that makes choosing restaurants easier by su
 - **Habit:** FÜÜD's swipe feature, in addition to the personalized list of liked restaurants, ensures that the app will not only satisfy user's needs, but also aim to let users enjoy being given one choice at a time. Users will consume FÜÜD to make quick choices for them and the opportunity to explore restaurants in an addicting fashion. It's FÜÜD's goal to provide a solution to hungry diner's indecision and to give them a worthwhile experience while using the app.
 - **Scope:** The complete app that includes displaying restaurant suggestions, enabling the swipe feature, and including the restaurant into a personalized list might be a challenge to finish all by the end of the program. However, the stripped down version that includes displaying personalized individual restaurants to the user using geolocation will be the goal. If done, it will undoubtedly give us a broader view of what types of mobile apps we are capable of creating. 
 
-## Final Demo
+## Demo
 
-<img src= 'https://github.com/LaUrrego/restaurant/blob/main/images/Sprint3.gif' />
+###  Our Final [Demo Video](https://www.youtube.com/watch?v=b10uyFbhYWk)
 
-## Completed User Stories
+<img src= 'http://g.recordit.co/ABczCiqsu5.gif' />
+
+
+## User Stories & Build Progress
 The following **required** functionality is completed:
 
 ### Sprint #3:
