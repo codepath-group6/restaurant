@@ -1,25 +1,41 @@
-Group Milestone - README
+FÜÜD - README
 ===
-
-# FÜÜD
  
 ## Table of Contents
-1. [Completed User Stories](#Completed-User-Stories)
 1. [Overview](#Overview)
+1. [Final Demo](#Final-Demo)
+1. [Completed User Stories](#Completed-User-Stories)
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
 2. [Schema](#Schema)
+1. [What's Next?](#What's-Next?)
+
+## Overview
+### Description
+FÜÜD is a food recommendation app that makes choosing restaurants easier by suggesting nearby restaurants one after another to an individual. Users can swipe left to reject or swipe right to save that restaurant into a favorites list.
+
+### App Evaluation
+- **Category:** Lifestyle 
+- **Mobile:** Using the Yelp Fusion API, it will have the user's location and take in real time data about surrounding restaurants. It will have a details page for each restaurant for a user to access. And it will allow the user to save any restaurant into their own favorites section. For now, it'll only run from a iOS mobile device. 
+- **Story:** The fascinating thing about FÜÜD is that it is a hybrid mobile app, bringing the best features of both Yelp and Tinder, allowing users to quickly scan, swipe and add suggested restaurants. This app is perfect for our friends and peers who have short attention spans and dislike scrolling through dozens of restaurants at once. 
+- **Market:** Dining out and spending outdoor time will always be part of the world. FÜÜD provides quick, targeted suggestions for people who don't want to spend hours deciding on what to eat. 
+- **Habit:** FÜÜD's swipe feature, in addition to the personalized list of liked restaurants, ensures that the app will not only satisfy user's needs, but also aim to let users enjoy being given one choice at a time. Users will consume FÜÜD to make quick choices for them and the opportunity to explore restaurants in an addicting fashion. It's FÜÜD's goal to provide a solution to hungry diner's indecision and to give them a worthwhile experience while using the app.
+- **Scope:** The complete app that includes displaying restaurant suggestions, enabling the swipe feature, and including the restaurant into a personalized list might be a challenge to finish all by the end of the program. However, the stripped down version that includes displaying personalized individual restaurants to the user using geolocation will be the goal. If done, it will undoubtedly give us a broader view of what types of mobile apps we are capable of creating. 
+
+## Final Demo
+
+<img src= 'https://github.com/LaUrrego/restaurant/blob/main/images/Sprint3.gif' />
 
 ## Completed User Stories
 The following **required** functionality is completed:
 
-### Sprint 3:
+### Sprint #3:
 - [x] Layout and overall design streamlined, including update to logo as: FÜÜD
 - [x] Implemented manual input for city after login including a "skip" option for existing users
 - [x] Mapview added to details screen, focusing on annotated restaurant location and surrounding streets
 - [x] Swipe-to-remove added to Favorites list screen
 
-## Sprint#3 Video Walkthrough
+#### Sprint#3 Video Walkthrough
 
 Here's a walkthrough of implemented user stories (build progress):
 
@@ -32,31 +48,23 @@ Here's a walkthrough of implemented user stories (build progress):
 - [x] User can swipe left to reject restaurant or swipe right or press the 'like' button (characterized by a white spoon with a filled red heart) to then add the restaurant to their "Favorites" page.
 - [x] When user clicks on 'Favorites List' user can see their individualized favorited restaurants with image and name visible. 
 
+#### Sprint #2 Video Walkthrough
+
+Here's a walkthrough of implemented user stories (build progress):
+
+<img src= 'http://g.recordit.co/vE8X9F602J.gif' />
+
 ### Sprint 1:
 
 - [x] When user opens app, there should be a launch screen with logo (vector img obtained from https://www.vecteezy.com/vector-art/13043198-abstract-two-tea-spoons-keep-on-the-table-logo-design-icon-tableware-element-kitchenware-vector-illustration)
 - [x] When user opens app and after seeing launch screen, user will see login screen with: FUUD logo, username text field, password text field, signin button, sign up button
 - [x] Screen shows one restaurant suggestion at a time. Suggestion includes: restaurant image, name, yelp stars, and cuisine type. User can swipe to get different restaurant suggestion.
 
-
-## Sprint#2 Video Walkthrough
+#### Sprint #1 Video Walkthrough
 
 Here's a walkthrough of implemented user stories (build progress):
 
-<img src= 'http://g.recordit.co/vE8X9F602J.gif' />
-
-
-## Overview
-### Description
-Suggests restaurants one after another to an individual. Users can swipe to reject or save that restaurant into a list.
-
-### App Evaluation
-- **Category:** Lifestyle 
-- **Mobile:** Like Yelp, it will have the user's location and take in real time data about surrounding restaurants. It will have a details page for each restaurant for a user to access. For now, it'll only run from a mobile device. 
-- **Story:** The fascinating thing about Fuud is that it is a hybrid mobile app, bringing the best features of both Yelp and Tinder, allowing users to quickly scan, add and swipe suggested restaurants. This app is perfect for our friends and peers who have short attention spans and dislike scrolling through dozens of restaurants at once. 
-- **Market:** Dining out and spending outdoor time will always be part of the world. Fuud provides quick, targeted suggestions for people who don't want to spend hours deciding on what to eat. 
-- **Habit:** Fuud's tinder-like swipe feature in addition to the personalized list of liked restaurants, ensures that the app will not only satisfy user's needs, but also aim to let users enjoy being given one choice at a time. Users will consume Fuud to make quick choices for them and the opportunity to explore restaurants in an addicting fashion. It's Fuud's goal to provide a solution to hungry diner's indecision and to give them a worthwhile experience while using the app.
-- **Scope:** The complete app that includes displaying restaurant suggestions, enabling the swipe feature, and including the restaurant into a personalized list might be a challenge to finish all by the end of the program. However, the stripped down version that includes displaying personalized individual restaurants to the user using geolocation will be the goal. If done, it will undoubtedly give us a broader view of what types of mobile apps we are capable of creating. 
+<img src= 'https://github.com/SYee50/Gif/blob/main/fuud_sprint_1.gif' />
 
 ## Product Spec
 
@@ -98,7 +106,6 @@ Suggests restaurants one after another to an individual. Users can swipe to reje
 * Settings 
    * Filters to further refine types of restaurants shown in Explorer
    
-
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
@@ -166,3 +173,10 @@ Suggests restaurants one after another to an individual. Users can swipe to reje
 * Restaurant Detail View
     * (Read/GET) Fetch restaurant info from restaurant-archive object
 
+## What's Next?
+
+There’s a lot more work to be done!
+* Detailed restaurant view for each favorited restaurants
+* Read restaurant reviews on the app itself
+* Use GPS location to get live local restaurant suggestions
+* Implement a “Feeling Lucky!” button to suggest a single restaurant option using machine learning, by aggregating data on the user’s past favorited restaurants
