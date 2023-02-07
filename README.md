@@ -119,8 +119,10 @@ Here's a walkthrough of implemented user stories (build progress):
 **Flow Navigation** (Screen to Screen)
 
 * Main page displays button to navigate to search page
-   * Swipe left to add restaurant to Fuud archive
-   * Swipe right to select another restaurant
+* Initial view is a restaurant card using custom XIB user interface with [Yelp Fusion API](https://fusion.yelp.com/) data
+   * Navigation will be implemented using [KolodaView](https://github.com/Yalantis/Koloda) installed via [CocoaPods](https://cocoapods.org/)
+      * Swipe left to add restaurant to Fuud archive
+      * Swipe right to select another restaurant
 * Main page displays list of archive in infinite scroll and navigates to details page
    * display details of restaurant 
 
